@@ -64,3 +64,45 @@ public func solution(_ A : inout [Int]) -> Int {
     }
     return minDifference!
 }
+
+
+// https://app.codility.com/demo/results/trainingWT45B4-5NP/   复杂度貌似正确 没有超时但是短点有错
+public func solution(_ A : [Int]) -> Int {
+    let n = A.count
+    let sum = A.reduce(0, +)
+    
+    var leftSum = A.first!
+    var rightSum = sum - leftSum
+    
+    var minDiff = Int.max
+    
+    // p index 为1~(n-2) 因为切成2个厚都不能为空数组
+    // 0~(p-1)   p~(n-1)
+    // 此处循环p 到(n-2)为止因为A[p] A[n-1] 不能移动到左边
+    for p in 1..<n-1 {
+        leftSum += A[p]
+        rightSum -= A[p]
+        minDiff = min(minDiff, abs(leftSum - rightSum))
+    }
+     return minDiff
+}
+
+
+https://app.codility.com/demo/results/trainingV3H7S3-YXF/ 100 大神方法
+public func solution(_ A : inout [Int]) -> Int {
+    let sum  = A.reduce(0, +)
+    
+    var leftT = 0
+    var rightT = sum
+    var minDif = Int.max
+    let n = A.count
+    for p in 0 ..< n-1 {
+        let x = A[p]
+        leftT += x
+        rightT -= x
+        
+        let dif = abs(leftT - rightT)
+        minDif = min(minDif, dif)
+    }
+    return minDif
+}
