@@ -1,5 +1,5 @@
 /*
-
+https://app.codility.com/demo/results/training6RPSBK-MT3/
 
 You are given two non-empty arrays A and B consisting of N integers. Arrays A and B represent N voracious fish in a river, ordered downstream along the flow of the river.
 
@@ -43,7 +43,7 @@ Write an efficient algorithm for the following assumptions:
 
 
 */
-public func solution(_ A : inout [Int], _ B : inout [Int]) -> Int {
+public func solution(_ A : inout [Int], _ B : inout [Int]) -> Int {//参考一个大神
     // write your code in Swift 4.2.1 (Linux)
     var flowingDown: [Int] = []
 
